@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Информационная подсистема учета сделок с ценными бумагами
+</title>
+<link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<h1>Добро пожаловать...</h1>
+<img th:src="@{/images/demospring.png}"/>
+        <li sec:authorize="isAuthenticated()">
+            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle">Выйти</a>
+            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                <input hidden type="submit" value="Sign Out" />
+            </form>
+        </li>
+<a href="/typedeal" class="main-button">Выбрать тип сделки</a>
+<a href="/deal/create" class="main-button">Создать сделку</a>
+<a href="/deal/all" class="main-button">Просмотреть все сделки</a>
+<input type="hidden" th:name="${_csrf.parameterName}"
+       th:value="${_csrf.token}" />
+</body>
+</html>
+
